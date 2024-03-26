@@ -1,0 +1,5 @@
+[user]
+	name = jake-edmonstone
+	email = jbedmonstone@gmail.com
+[core]
+	editor = nvim
