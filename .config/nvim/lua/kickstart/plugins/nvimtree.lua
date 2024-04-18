@@ -34,8 +34,5 @@ return {
                 vim.cmd 'NvimTreeOpen'
             end
         end
-
-        -- Call the function on VimEnter event.
-        vim.cmd 'autocmd VimEnter * lua OpenNvimTreeIfNoFiles()'
     end,
 }

@@ -57,6 +57,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/highlight-undo',
 
+  require 'kickstart/plugins/nvim-spider',
+
 }, {
   ui = {
       border = 'rounded',

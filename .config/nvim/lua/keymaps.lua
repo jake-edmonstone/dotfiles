@@ -52,8 +52,9 @@ vim.api.nvim_set_keymap('v', 'y', 'ygv<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '{<S-CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
 
--- kj to enter normal mode
+-- kj and jk to enter normal mode
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'jk', '<Esc>l', { noremap = true, silent = true })
 
 -- make pasting in visual mode not replace the register
 vim.api.nvim_set_keymap('v', 'p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
@@ -83,4 +84,23 @@ vim.api.nvim_set_keymap('n', '==', 'mmgg=G`m:delmarks m<CR>', { noremap = true, 
 vim.api.nvim_set_keymap('n', '<Leader>t', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<Leader>g', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
+-- Spider keymaps
+vim.keymap.set(
+  { "n", "o", "x" },
+  "w",
+  "<cmd>lua require('spider').motion('w')<CR>",
+  { desc = "Spider-w" }
+)
+vim.keymap.set(
+  { "n", "o", "x" },
+  "e",
+  "<cmd>lua require('spider').motion('e')<CR>",
+  { desc = "Spider-e" }
+)
+vim.keymap.set(
+  { "n", "o", "x" },
+  "b",
+  "<cmd>lua require('spider').motion('b')<CR>",
+  { desc = "Spider-b" }
+)
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,5 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
+brew "bat"
+brew "python@3.12"
 brew "black"
 brew "unbound"
 brew "gnutls"
@@ -7,7 +9,10 @@ brew "emacs"
 brew "cask"
 brew "clang-format"
 brew "cowsay"
+brew "eza"
+brew "fd"
 brew "fortune"
+brew "fzf"
 brew "little-cms2"
 brew "ghostscript"
 brew "hydra"
@@ -29,6 +34,7 @@ mas "HP Smart", id: 1474276998
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
