@@ -59,6 +59,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/nvim-spider',
 
+  require 'kickstart/plugins/better-escape',
+
 }, {
   ui = {
       border = 'rounded',

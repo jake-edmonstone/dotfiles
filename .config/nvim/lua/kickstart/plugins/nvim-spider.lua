@@ -1,6 +1,6 @@
-return { 
-  { 
-    'chrisgrieser/nvim-spider', 
+return {
+  {
+    'chrisgrieser/nvim-spider',
     lazy = true,
   }
 }

@@ -52,10 +52,6 @@ vim.api.nvim_set_keymap('v', 'y', 'ygv<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '{<S-CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
 
--- kj and jk to enter normal mode
-vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', 'jk', '<Esc>l', { noremap = true, silent = true })
-
 -- make pasting in visual mode not replace the register
 vim.api.nvim_set_keymap('v', 'p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
 -- pasting in visual mode with replace register
@@ -67,7 +63,10 @@ vim.api.nvim_set_keymap('n', 'p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = tr
 -- make changing in any mode not replace register
 vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'c', '"_c', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'C', '"_C', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'C', '"_C', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'X', '"_X', { noremap = true, silent = true })
 
 -- provides a way to delete without copying
 vim.keymap.set('n', '<leader>d', '"_d', { desc = 'Delete to black hole', silent = true })

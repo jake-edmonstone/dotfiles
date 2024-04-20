@@ -1,0 +1,9 @@
+mkcd () {
+  mkdir -p "$1" && cd "$1"
+}
+alias rm='rm -i'
+alias cp="cp -i"
+alias ls='eza --icons=always'
+alias la='eza --icons=always -A'
+alias grep='grep --color=auto'
+

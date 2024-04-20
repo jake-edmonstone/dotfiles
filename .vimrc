@@ -67,9 +67,9 @@ set softtabstop=2
 
 set clipboard=unnamed,unnamedplus
 set ignorecase
-nnoremap p p`]mm`[v`]=`m:delmarks m<CR>
-vnoremap p p`]mm`[v`]=`m:delmarks m<CR>
-nnoremap == mmgg=G`m:delmarks m<CR>
+nnoremap p p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
+vnoremap p p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
+nnoremap == mmgg=G`m:silent delmarks m<CR>:redraw!<CR>
 vnoremap y ygv<Esc>
 inoremap kj <Esc>
 nnoremap c "_c
@@ -77,8 +77,9 @@ vnoremap c "_c
 vnoremap p "_dP
 nnoremap <space>d "_d
 vnoremap <space>d "_d
-n" Change cursor to a vertical bar in insert mode
+noremap x "_x
+" Change cursor to a vertical bar in insert mode
 let &t_SI = "\e[5 q"
 " Change cursor back to a block in normal mode
-let &t_EI = "\e[1 q"noremap x "_x
+let &t_EI = "\e[1 q"
 set autowriteall
