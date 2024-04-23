@@ -1,5 +1,4 @@
 " An example for a vimrc file.
-"
 " Maintainer:	The Vim Project <https://github.com/vim/vim>
 " Last Change:	2023 Aug 10
 " Former Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -64,6 +63,9 @@ set shiftwidth=2
 set expandtab
 set softtabstop=2
 
+set backup  "Enable backup files.
+set backupdir=~/.vim_backups/
+set backupskip=/tmp/*,/private/tmp/*
 
 set clipboard=unnamed,unnamedplus
 set ignorecase
