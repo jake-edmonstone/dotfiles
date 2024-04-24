@@ -63,6 +63,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/nvim-autopairs',
 
+  require 'kickstart/plugins/lualine',
+
 }, {
   ui = {
       border = 'rounded',
