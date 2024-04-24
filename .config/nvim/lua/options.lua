@@ -10,6 +10,14 @@ vim.cmd [[
     autocmd FileType * setlocal indentkeys-=:
   augroup END
 ]]
+ 
+-- Makes it so it doesn't start comment lines automatically
+vim.api.nvim_create_augroup("FormatOptions", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    command = "set formatoptions-=ro",
+    group = "FormatOptions",
+})
 
 vim.opt.pumheight = 5 -- limits height of pop up
 vim.opt.tabstop = 2 -- Set the width of a tab character
@@ -93,7 +101,6 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-
 
 -- Configure the LSP hover handler to include a border
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(

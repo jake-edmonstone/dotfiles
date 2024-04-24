@@ -35,7 +35,14 @@ return {
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
-
+      
+     -- autopairs 
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
+      
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -43,8 +50,12 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
-
-        -- For an understanding of why these mappings were
+        window = {
+          -- Set borders for the documentation window
+          documentation = cmp.config.window.bordered({
+            border = 'rounded',  -- Ensures consistency in border style
+          }),
+        },
         -- chosen, you will need to read `:help ins-completion`
         --
         -- No, but seriously. Please read `:help ins-completion`, it is really good!

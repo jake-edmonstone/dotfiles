@@ -61,6 +61,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/better-escape',
 
+  require 'kickstart/plugins/nvim-autopairs',
+
 }, {
   ui = {
       border = 'rounded',

@@ -25,7 +25,7 @@ return {
         'nvim-tree/nvim-web-devicons',
     },
     config = function()
-        require('nvim-tree').setup { on_attach = My_on_attach }
+        require('nvim-tree').setup { on_attach = My_on_attach, view = { side = 'right' } }
 
         function OpenNvimTreeIfNoFiles()
             -- Check if Neovim is started without any arguments.

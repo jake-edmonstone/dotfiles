@@ -49,8 +49,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_set_keymap('v', 'y', 'ygv<Esc>', { noremap = true, silent = true })
 
 -- auto close }
-vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '{<S-CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '{<S-CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
 
 -- make pasting in visual mode not replace the register
 vim.api.nvim_set_keymap('v', 'p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
