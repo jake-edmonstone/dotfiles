@@ -17,23 +17,25 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
-      -- local statusline = require 'mini.statusline'
-      -- -- set use_icons to true if you have a Nerd Font
-      -- statusline.setup { use_icons = vim.g.have_nerd_font }
-      --
-      -- -- You can configure sections in the statusline by overriding their
-      -- -- default behavior. For example, here we set the section for
-      -- -- cursor location to LINE:COLUMN
-      -- ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_location = function()
-      --   return '%2l:%-2v'
-      -- end
+      require('mini.starter').setup()
+      require('mini.sessions').setup()
 
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      -- Define a function to save a session
+      function SaveSession(sessionName)
+        require('mini.sessions').write(sessionName)
+      end
+
+      -- Define a function to select a session
+      function SelectSession()
+        require('mini.sessions').select()
+      end
+      -- Command to save a session with a specified name
+      vim.api.nvim_create_user_command('SaveSession', function(input)
+        SaveSession(input.args)
+      end, { nargs = 1 })
+
+      -- Command to select a session
+      vim.api.nvim_create_user_command('SelectSession', SelectSession, {})
     end,
   },
 }

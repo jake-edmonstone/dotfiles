@@ -65,6 +65,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/lualine',
 
+  require 'kickstart/plugins/fugitive',
+
 }, {
   ui = {
       border = 'rounded',

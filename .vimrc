@@ -1,24 +1,7 @@
-" An example for a vimrc file.
-" Maintainer:	The Vim Project <https://github.com/vim/vim>
-" Last Change:	2023 Aug 10
-" Former Maintainer:	Bram Moolenaar <Bram@vim.org>
-"
-" To use it, copy it to
-"	       for Unix:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"	 for MS-Windows:  $VIM\_vimrc
-"	      for Haiku:  ~/config/settings/vim/vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings, bail
-" out.
 syntax on
 filetype on
 filetype indent on
 filetype plugin on
-if v:progname =~? "evim"
-  finish
-endif
 
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
