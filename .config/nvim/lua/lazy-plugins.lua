@@ -67,6 +67,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/fugitive',
 
+  require 'kickstart/plugins/nvim-tree-preview'
+
 }, {
   ui = {
       border = 'rounded',

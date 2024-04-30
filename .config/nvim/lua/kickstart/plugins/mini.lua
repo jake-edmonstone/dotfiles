@@ -29,6 +29,12 @@ return {
       function SelectSession()
         require('mini.sessions').select()
       end
+
+      -- Define a function to delete a session
+      function DeleteSession(sessionName)
+        require('mini.sessions').delete(sessionName)
+      end
+      
       -- Command to save a session with a specified name
       vim.api.nvim_create_user_command('SaveSession', function(input)
         SaveSession(input.args)
@@ -36,6 +42,10 @@ return {
 
       -- Command to select a session
       vim.api.nvim_create_user_command('SelectSession', SelectSession, {})
+      -- Command to delete a session with a specified name
+      vim.api.nvim_create_user_command('DeleteSession', function(input)
+        DeleteSession(input.args)
+      end, { nargs = 1 })
     end,
   },
 }
