@@ -66,9 +66,10 @@ require('lazy').setup({
   require 'kickstart/plugins/lualine',
 
   require 'kickstart/plugins/fugitive',
-
-  require 'kickstart/plugins/nvim-tree-preview'
-
+  
+  require 'kickstart/plugins/nvim-tree-preview',
+  
+  require 'kickstart/plugins/trouble'
 }, {
   ui = {
       border = 'rounded',

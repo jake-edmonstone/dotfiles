@@ -84,22 +84,15 @@ vim.api.nvim_set_keymap('n', '<Leader>t', ':NvimTreeToggle<CR>', { noremap = tru
 -- vim.api.nvim_set_keymap('n', '<Leader>g', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 -- Spider keymaps
-vim.keymap.set(
-  { "n", "o", "x" },
-  "w",
-  "<cmd>lua require('spider').motion('w')<CR>",
-  { desc = "Spider-w" }
-)
-vim.keymap.set(
-  { "n", "o", "x" },
-  "e",
-  "<cmd>lua require('spider').motion('e')<CR>",
-  { desc = "Spider-e" }
-)
-vim.keymap.set(
-  { "n", "o", "x" },
-  "b",
-  "<cmd>lua require('spider').motion('b')<CR>",
-  { desc = "Spider-b" }
-)
+vim.keymap.set( { "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set( { "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set( { "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+
+-- Trouble keymap
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
 -- vim: ts=2 sts=2 sw=2 et
