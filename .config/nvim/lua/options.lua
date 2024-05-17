@@ -3,6 +3,16 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Set backup options
+vim.opt.backup = true            -- Enable backups
+vim.opt.backupdir = '/Users/jbedm/.backups//'  -- Sets backup directory
+
+-- Create the backup directory if it doesn't exist
+local backup_dir =  '/Users/jbedm/.backups'
+if not vim.fn.isdirectory(backup_dir) then
+  vim.fn.mkdir(backup_dir, "p")
+end
+
 -- Removes the : from indent keys so typing it cannot change indentation
 vim.cmd [[
   augroup GeneralIndent

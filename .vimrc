@@ -23,7 +23,6 @@ endif
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
-
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 augroup END
@@ -54,12 +53,13 @@ set clipboard=unnamed,unnamedplus
 set ignorecase
 nnoremap p p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
 vnoremap p p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
+vnoremap <space>p "_p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
 nnoremap == mmgg=G`m:silent delmarks m<CR>:redraw!<CR>
 vnoremap y ygv<Esc>
 inoremap kj <Esc>
+inoremap jk <Esc>
 nnoremap c "_c
 vnoremap c "_c
-vnoremap p "_dP
 nnoremap <space>d "_d
 vnoremap <space>d "_d
 noremap x "_x

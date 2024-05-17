@@ -6,6 +6,8 @@
 	<false/>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>BadgeTopMargin</key>
+	<integer>10</integer>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>dracula</key>
@@ -229,8 +231,10 @@
 	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>DrawBottomLineForHorizontalTabBar</key>
+	<true/>
 	<key>FocusFollowsMouse</key>
-	<false/>
+	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -1093,6 +1097,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>ShowFullScreenTabBar</key>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>SoundForEsc</key>

@@ -52,10 +52,9 @@ vim.api.nvim_set_keymap('v', 'y', 'ygv<Esc>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('i', '{<S-CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
 
--- make pasting in visual mode not replace the register
-vim.api.nvim_set_keymap('v', 'p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
--- pasting in visual mode with replace register
---vim.api.nvim_set_keymap('v', '<leader>p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
+-- pasting in visual mode will not replace register, unless leader is pressed
+vim.api.nvim_set_keymap('v', '<leader>p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'p', 'P`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
 
 -- makes the cursor go to the end of the pasted text
 vim.api.nvim_set_keymap('n', 'p', 'p`]mm`[v`]=`m:delmarks m<CR>', { noremap = true, silent = true })
@@ -88,7 +87,7 @@ vim.keymap.set( { "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<
 vim.keymap.set( { "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set( { "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 
--- Trouble keymap
+-- Trouble keymaps
 vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
 vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
 vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)

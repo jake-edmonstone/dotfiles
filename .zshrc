@@ -9,6 +9,10 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/Scripts:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+
+# for cs 241
+export PATH="$HOME/cs241tools/pub/:$PATH"
+
 export ZSH="$HOME/.oh-my-zsh"
 
 # zsh theme
