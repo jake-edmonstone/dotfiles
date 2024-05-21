@@ -1,8 +1,8 @@
 return {
   {
-    'akinsho/bufferline.nvim',
-    version = '*',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    opts = {}
-  },
+    "Theyashsawarkar/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    version = "*",
+    opts = { },
+  }
 }

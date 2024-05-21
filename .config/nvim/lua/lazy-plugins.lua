@@ -69,7 +69,9 @@ require('lazy').setup({
   
   require 'kickstart/plugins/nvim-tree-preview',
   
-  require 'kickstart/plugins/trouble'
+  require 'kickstart/plugins/trouble',
+
+  require 'kickstart/plugins/vimtex',
 }, {
   ui = {
       border = 'rounded',

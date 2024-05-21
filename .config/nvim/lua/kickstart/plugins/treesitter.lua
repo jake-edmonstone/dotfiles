@@ -10,7 +10,7 @@ return {
         ensure_installed = { 'cpp', 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
         -- Autoinstall languages that are not installed
         auto_install = true,
-        highlight = { enable = true },
+        highlight = { enable = true, disable = { "latex", } },
         indent = { enable = true },
       }
 
