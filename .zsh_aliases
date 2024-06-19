@@ -5,5 +5,5 @@ alias rm='rm -i'
 alias cp="cp -i"
 alias ls='eza --icons=always'
 alias la='eza --icons=always -A'
-alias grep='grep --color=auto'
+alias grep='grep --ignore-case --color=auto'
 

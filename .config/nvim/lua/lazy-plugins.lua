@@ -72,6 +72,8 @@ require('lazy').setup({
   require 'kickstart/plugins/trouble',
 
   require 'kickstart/plugins/vimtex',
+  
+  require 'kickstart/plugins/undotree',
 }, {
   ui = {
       border = 'rounded',
