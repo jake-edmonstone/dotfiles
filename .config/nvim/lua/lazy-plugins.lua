@@ -26,75 +26,55 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   require 'kickstart/plugins/gitsigns',
-
   require 'kickstart/plugins/telescope',
-
-  require 'kickstart/plugins/lspconfig',
-
+  { 'kickstart/plugins/lspconfig', cond = not vim.g.vscode},
   require 'kickstart/plugins/conform',
-
   require 'kickstart/plugins/cmp',
-
   require 'kickstart/plugins/dracula',
-
   require 'kickstart/plugins/mini',
-
   require 'kickstart/plugins/treesitter',
-
   require 'kickstart/plugins/nvimtree',
-
   require 'kickstart/plugins/webdevicons',
-
   require 'kickstart/plugins/indent_line',
-
   require 'kickstart/plugins/which-key',
-
   require 'kickstart/plugins/bufferline',
-
   require 'kickstart/plugins/lsp_lines',
-
   require 'kickstart/plugins/context',
-
   require 'kickstart/plugins/highlight-undo',
-
-  require 'kickstart/plugins/nvim-spider',
-
+  {'kickstart/plugins/nvim-spider', cond =not vim.g.vscode},
   require 'kickstart/plugins/better-escape',
-
   require 'kickstart/plugins/nvim-autopairs',
-
   require 'kickstart/plugins/lualine',
-
   require 'kickstart/plugins/fugitive',
-  
   require 'kickstart/plugins/nvim-tree-preview',
-  
   require 'kickstart/plugins/trouble',
-
   require 'kickstart/plugins/vimtex',
-  
   require 'kickstart/plugins/undotree',
+  require 'kickstart/plugins/codesnap',
+
+
+
 }, {
-  ui = {
+    ui = {
       border = 'rounded',
-    -- If you have a Nerd Font, set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
+      -- If you have a Nerd Font, set icons to an empty table which will use the
+      -- default lazy.nvim defined Nerd Font icons otherwise define a unicode icons table
+      icons = vim.g.have_nerd_font and {} or {
+        cmd = '⌘',
+        config = '🛠',
+        event = '📅',
+        ft = '📂',
+        init = '⚙',
+        keys = '🗝',
+        plugin = '🔌',
+        runtime = '💻',
+        require = '🌙',
+        source = '📄',
+        start = '🚀',
+        task = '📌',
+        lazy = '💤 ',
+      },
     },
-  },
-})
+  })
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -50,6 +50,26 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+        view = {
+          entries = {
+            follow_cursor = true,
+          }
+        },
+        formatting = {
+          fields = { 'abbr', 'kind', 'menu' },
+          format = function(entry, vim_item)
+            if entry.source.name == "omni" then
+              return vim_item
+            else
+              vim_item.menu = ({
+                luasnip = "[LuaSnip]",
+                buffer = "[Buffer]",
+              })[entry.source.name]
+            end
+            return vim_item
+          end,
+        },
+      
         window = {
           -- Set borders for the documentation window
           documentation = cmp.config.window.bordered({

@@ -49,6 +49,11 @@ set backup  "Enable backup files.
 set backupdir=~/.vim_backups/
 set backupskip=/tmp/*,/private/tmp/*
 
+" Disable the default highlighting for matching braces
+highlight MatchParen NONE
+" Enable underline for matching braces
+highlight MatchParen cterm=underline gui=underline
+
 set clipboard=unnamed,unnamedplus
 set ignorecase
 nnoremap p p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>

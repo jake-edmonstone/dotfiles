@@ -83,9 +83,11 @@ vim.api.nvim_set_keymap('n', '<Leader>t', ':NvimTreeToggle<CR>', { noremap = tru
 -- vim.api.nvim_set_keymap('n', '<Leader>g', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 -- Spider keymaps
-vim.keymap.set( { "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set( { "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-vim.keymap.set( { "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+if not vim.g.vscode then
+  vim.keymap.set( { "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+  vim.keymap.set( { "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+  vim.keymap.set( { "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+end
 
 -- Trouble keymaps
 vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)

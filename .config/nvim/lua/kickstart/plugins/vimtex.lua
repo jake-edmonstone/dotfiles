@@ -18,7 +18,7 @@ return {
         executable = 'latexmk',
         options = {
           '-pdf',
-          '-pdflatex=xelatex -interaction=nonstopmode -synctex=1',
+          '-pdflatex=pdflatex -interaction=nonstopmode -synctex=1',
         },
       }
     end

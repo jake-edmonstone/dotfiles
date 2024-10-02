@@ -9,6 +9,8 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/Scripts:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="/Users/jbedm/.local/bin:$PATH"
+source $(brew --prefix)/etc/profile.d/z.sh
 
 # VimTex
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
