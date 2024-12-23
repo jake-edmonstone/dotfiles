@@ -56,9 +56,6 @@ highlight MatchParen cterm=underline gui=underline
 
 set clipboard=unnamed,unnamedplus
 set ignorecase
-nnoremap p p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
-vnoremap p p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
-vnoremap <space>p "_p`]mm`[v`]=`m:silent delmarks m<CR>:redraw!<CR>
 nnoremap == mmgg=G`m:silent delmarks m<CR>:redraw!<CR>
 vnoremap y ygv<Esc>
 inoremap kj <Esc>
