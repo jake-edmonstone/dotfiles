@@ -1,6 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+
 [git_metrics]
 disabled = false
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+only_nonzero_diffs = true
+
 [git_status]
 use_git_executable = true
