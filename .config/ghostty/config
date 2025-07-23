@@ -1,0 +1,5 @@
+theme = dracula
+cursor-style = block
+shell-integration-features = no-cursor
+background-opacity = 0.9
+font-size = 16
