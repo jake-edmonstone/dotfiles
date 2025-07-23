@@ -1,0 +1,6 @@
+{
+  "preamble": {
+    "prefix": "pre",
+    "body": "#import \"preamble.typ\" : * \n#show: preamble"
+  }
+}
