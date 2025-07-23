@@ -1,7 +1,18 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 [git_status]
-disabled = true
+format = "[[$conflicted](yellow)[$untracked](218)[$modified$renamed](255)[$staged](green)[$deleted](red)($ahead_behind$stashed)]($style)"
+conflicted = " $count "
+untracked = " $count "
+modified = " $count "
+deleted = " $count "
+staged = " $count "
+renamed = " $count "
+stashed = " $count "
+style = "cyan"
+disabled = false
+use_git_executable = true	
 
 [git_metrics]
 disabled = false
+
