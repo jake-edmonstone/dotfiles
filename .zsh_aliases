@@ -6,4 +6,6 @@ alias cp="cp -i"
 alias ls='eza --icons=always'
 alias la='eza --icons=always -A'
 alias grep='grep --ignore-case --color=auto'
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
 

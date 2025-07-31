@@ -26,6 +26,7 @@ return {
         "vim",
         "yaml",
         "typst",
+        "haskell",
       },
     },
   },

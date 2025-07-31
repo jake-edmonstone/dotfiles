@@ -14,9 +14,6 @@ export PATH="$/usr/local/texlive/2024/bin/universal-darwin:$PATH"
 # Unison
 export UNISONLOCALHOSTNAME=FixedHostname
 
-# Haskell
-[ -f "/Users/jbedm/.ghcup/env" ] && . "/Users/jbedm/.ghcup/env" # ghcup-env
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Oh My Zsh Core & Plugins
 # ──────────────────────────────────────────────────────────────────────────────
@@ -98,4 +95,3 @@ export BAT_THEME=Dracula
 # Prompt
 # ──────────────────────────────────────────────────────────────────────────────
 eval "$(starship init zsh)"
-

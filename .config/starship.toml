@@ -11,8 +11,9 @@ renamed = " $count "
 stashed = " $count "
 style = "cyan"
 disabled = false
-use_git_executable = true	
+#use_git_executable = true	
 
 [git_metrics]
 disabled = false
+
 

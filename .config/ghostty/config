@@ -3,3 +3,7 @@ cursor-style = block
 shell-integration-features = no-cursor
 background-opacity = 0.9
 font-size = 16
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+background-blur = true
+mouse-hide-while-typing = true
