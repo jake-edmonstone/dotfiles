@@ -34,23 +34,57 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      -- keymap = {
+      --   preset = "default",
+      -- },
       completion = {
+        list = { selection = { preselect = false } },
         ghost_text = { enabled = false },
+        -- menu = {
+        --   border = "rounded",
+        --   winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+        --   winblend = 0,
+        -- },
+        -- documentation = {
+        --   window = {
+        --     border = "rounded",
+        --     winblend = 0,
+        --   },
+        -- },
       },
     },
   },
 
-  { "folke/snacks.nvim", opts = {
-    picker = {
-      layout = { layout = { position = "right" } },
+  {
+    "folke/noice.nvim",
+    opts = {
+      presets = {
+        lsp_doc_border = true,
+      },
     },
-  } },
+  },
+
+  {
+    "folke/snacks.nvim",
+    opts = {
+      explorer = { enabled = false },
+      picker = {
+        layout = { layout = { position = "right" } },
+      },
+    },
+  },
 
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
+      inlay_hints = { enabled = true },
+      -- ui = {
+      --   windows = {
+      --     default_options = {
+      --       border = "rounded",
+      --     },
+      --   },
+      -- },
       servers = {
         tinymist = {
           settings = {
@@ -60,13 +94,6 @@ return {
           },
         },
       },
-    },
-  },
-
-  {
-    "nvim-lspconfig",
-    opts = {
-      inlay_hints = { enabled = false },
     },
   },
 

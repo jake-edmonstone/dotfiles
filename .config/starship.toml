@@ -1,4 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 1000  # 1 seconds
 
 [git_status]
 format = "[[$conflicted](yellow)[$untracked](218)[$modified$renamed](255)[$staged](green)[$deleted](red)($ahead_behind$stashed)]($style)"
@@ -16,4 +17,6 @@ disabled = false
 [git_metrics]
 disabled = false
 
-
+[directory]
+truncation_length = 0  # 0 means show the full path
+truncate_to_repo = false

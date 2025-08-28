@@ -2,5 +2,9 @@
   "preamble": {
     "prefix": "pre",
     "body": "#import \"preamble.typ\" : * \n#show: preamble"
+  },
+  "math_block": {
+    "prefix": "mb",
+    "body": "\\$\n$0\n\\$"
   }
 }

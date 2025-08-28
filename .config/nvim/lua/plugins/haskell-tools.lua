@@ -1,7 +1,7 @@
 return {
   {
     "mrcjkb/haskell-tools.nvim",
-    version = "^3", -- Recommended
-    ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
 }

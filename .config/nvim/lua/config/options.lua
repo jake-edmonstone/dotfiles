@@ -4,6 +4,8 @@
 
 vim.opt.list = false
 
+-- vim.opt.winborder = "rounded"
+
 vim.opt.guicursor =
   "n-v-c-sm:block-blinkwait700-blinkon400-blinkoff250,i-ci-ve:ver25-blinkwait700-blinkon400-blinkoff250,r-cr-o:hor20"
 

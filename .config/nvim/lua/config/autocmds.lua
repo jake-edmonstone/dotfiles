@@ -14,20 +14,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
   group = "FormatOptions",
 })
 
--- Autosave
-vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
-  pattern = { "*" },
-  command = "silent! wall",
-  nested = true,
-})
-
 -- Make cursor line lighter
-vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
-  pattern = "*",
-  callback = function()
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2E303E" })
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+--   pattern = "*",
+--   callback = function()
+--     vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2E303E" })
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "typst",
@@ -35,3 +28,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("i", "$", "$$<Left>", { buffer = true })
   end,
 })
+
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     if vim.fn.argc() ~= 1 then
+--       return
+--     end
+--     local arg = vim.fn.argv(0)
+--     local st = vim.uv.fs_stat(arg)
+--     if st and st.type == "directory" then
+--       vim.cmd("Oil " .. vim.fn.fnameescape(arg))
+--     end
+--   end,
+-- })
