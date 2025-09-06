@@ -9,3 +9,5 @@ background-blur = true
 mouse-hide-while-typing = true
 cursor-style-blink = true
 cursor-text = #000000
+macos-titlebar-proxy-icon = hidden
+title = " "

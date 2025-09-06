@@ -10,3 +10,5 @@ vim.opt.guicursor =
   "n-v-c-sm:block-blinkwait700-blinkon400-blinkoff250,i-ci-ve:ver25-blinkwait700-blinkon400-blinkoff250,r-cr-o:hor20"
 
 vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = false })
+
+vim.opt.swapfile = false

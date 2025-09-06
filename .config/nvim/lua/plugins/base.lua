@@ -1,11 +1,4 @@
--- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
---
--- In your plugin files, you can:
--- * add extra plugins
--- * disable/enabled LazyVim plugins
--- * override the configuration of LazyVim plugins
 return {
-  -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -33,24 +26,22 @@ return {
 
   {
     "saghen/blink.cmp",
+    dependencies = {
+      { "L3MON4D3/LuaSnip", version = "v2.*" },
+    },
     opts = {
-      -- keymap = {
-      --   preset = "default",
-      -- },
+      snippets = { preset = "luasnip" },
+      sources = {
+        default = {
+          "lsp",
+          "path",
+          "snippets",
+          "buffer",
+        },
+      },
       completion = {
         list = { selection = { preselect = false } },
         ghost_text = { enabled = false },
-        -- menu = {
-        --   border = "rounded",
-        --   winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
-        --   winblend = 0,
-        -- },
-        -- documentation = {
-        --   window = {
-        --     border = "rounded",
-        --     winblend = 0,
-        --   },
-        -- },
       },
     },
   },
@@ -64,12 +55,22 @@ return {
     },
   },
 
+  -- {
+  --   "folke/snacks.nvim",
+  --   opts = {
+  --     explorer = { enabled = false },
+  --     picker = {
+  --       layout = { layout = { position = "right" } },
+  --     },
+  --   },
+  -- },
   {
     "folke/snacks.nvim",
     opts = {
       explorer = { enabled = false },
       picker = {
-        layout = { layout = { position = "right" } },
+        sources = { explorer = { layout = { layout = { position = "right" } } } },
+        layout = { preset = "default" }, -- centered, large float
       },
     },
   },
@@ -78,13 +79,6 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = true },
-      -- ui = {
-      --   windows = {
-      --     default_options = {
-      --       border = "rounded",
-      --     },
-      --   },
-      -- },
       servers = {
         tinymist = {
           settings = {
@@ -98,15 +92,11 @@ return {
   },
 
   {
-    "echasnovski/mini.snippets",
-    opts = function()
-      local gen_loader = require("mini.snippets").gen_loader
-      return {
-        snippets = {
-          gen_loader.from_file("~/.config/nvim/snippets/global.json"),
-          gen_loader.from_lang(),
-        },
-      }
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip.loaders.from_lua").lazy_load({
+        paths = vim.fn.stdpath("config") .. "/snippets",
+      })
     end,
   },
 }
