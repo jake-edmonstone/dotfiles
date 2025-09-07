@@ -32,12 +32,12 @@ ls.add_snippets("typst", {
   }),
 
   -- math block snippet
-  s("mb", {
-    t("$$"),
-    t({ "", "" }),
-    i(0),
-    t({ "", "$$" }),
-  }),
+  -- s("mb", {
+  --   t("$$"),
+  --   t({ "", "" }),
+  --   i(0),
+  --   t({ "", "$$" }),
+  -- }),
 
   -- cayley table
   s("ctable", {
