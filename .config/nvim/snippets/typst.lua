@@ -12,13 +12,13 @@ local function grid_n(args)
   for r = 1, n do
     local cells = {}
     for _ = 1, n do
-      cells[#cells + 1] = "[]"
+      cells[#cells + 1] = "$$"
     end
     local line = "  " .. table.concat(cells, ", ")
     if r < n then
       nodes[#nodes + 1] = t({ line .. ",", "" })
     else
-      nodes[#nodes + 1] = t(line)
+      nodes[#nodes + 1] = t({ line .. "," })
     end
   end
   return sn(nil, nodes)
@@ -31,20 +31,13 @@ ls.add_snippets("typst", {
     t({ "", "#show: preamble" }),
   }),
 
-  -- math block snippet
-  -- s("mb", {
-  --   t("$$"),
-  --   t({ "", "" }),
-  --   i(0),
-  --   t({ "", "$$" }),
-  -- }),
-
   -- cayley table
   s("ctable", {
-    t("#cayley-table(columns: "),
+    t("#cayley-table("),
     i(1, "1"),
-    t({ ",", "" }),
+    t(", (", ""),
+    t({ "", "" }),
     d(2, grid_n, { 1 }),
-    t({ "", ")" }),
+    t({ "", "))" }),
   }),
 })
