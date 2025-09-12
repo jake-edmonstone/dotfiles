@@ -43,6 +43,15 @@ return {
         list = { selection = { preselect = false } },
         ghost_text = { enabled = false },
       },
+      keymap = {
+        preset = "default",
+        ["<Tab>"] = {
+          function(cmp)
+            return cmp.accept({ index = 1 })
+          end,
+          "fallback",
+        },
+      },
     },
   },
 

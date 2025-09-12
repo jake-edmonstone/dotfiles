@@ -27,3 +27,11 @@ vim.keymap.set("n", "==", function()
   vim.cmd("normal! gg=G")
   vim.api.nvim_win_set_cursor(0, cur)
 end, { desc = "Indent whole file", silent = true })
+
+vim.keymap.set("n", "<Tab>", function()
+  local word = vim.fn.expand("<cword>")
+  local suggestions = vim.fn.spellsuggest(word, 1)
+  if #suggestions > 0 then
+    vim.cmd.normal("ciw" .. suggestions[1])
+  end
+end, { noremap = true, silent = true, desc = "Replace with first spelling suggestion" })
