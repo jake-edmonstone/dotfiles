@@ -25,6 +25,19 @@ return {
   },
 
   {
+    "akinsho/bufferline.nvim",
+    highlights = {
+      fill = {
+        bg = "none", -- transparent
+      },
+      separator = { bg = "none" },
+      separator_visible = { bg = "none" },
+      separator_selected = { bg = "none" },
+      background = { bg = "none" },
+    },
+  },
+
+  {
     "saghen/blink.cmp",
     dependencies = {
       { "L3MON4D3/LuaSnip", version = "v2.*" },

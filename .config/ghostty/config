@@ -12,3 +12,4 @@ cursor-text = #000000
 macos-titlebar-proxy-icon = hidden
 title = " "
 custom-shader = shaders/cursor_smear.glsl
+macos-titlebar-style = hidden

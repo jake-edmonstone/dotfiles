@@ -14,19 +14,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
   group = "FormatOptions",
 })
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "typst",
---   callback = function(ev)
---     MiniPairs.map_buf(ev.buf, "i", "$", {
---       action = "closeopen",
---       pair = "$$",
---       neigh_pattern = "[^\\].",
---     })
---   end,
--- })
-
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
   command = "if mode() != 'c' | checktime | endif",
   pattern = "*",
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { fg = "NONE" })
+    vim.api.nvim_set_hl(0, "TabLineFill", { fg = "NONE" })
+    vim.api.nvim_set_hl(0, "BufferLineFill", { fg = "NONE" })
+  end,
 })
