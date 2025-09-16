@@ -25,19 +25,6 @@ return {
   },
 
   {
-    "akinsho/bufferline.nvim",
-    highlights = {
-      fill = {
-        bg = "none", -- transparent
-      },
-      separator = { bg = "none" },
-      separator_visible = { bg = "none" },
-      separator_selected = { bg = "none" },
-      background = { bg = "none" },
-    },
-  },
-
-  {
     "saghen/blink.cmp",
     dependencies = {
       { "L3MON4D3/LuaSnip", version = "v2.*" },
@@ -53,11 +40,11 @@ return {
         },
       },
       completion = {
-        list = { selection = { preselect = false } },
+        list = { selection = { preselect = false, auto_insert = false } },
         ghost_text = { enabled = false },
       },
       keymap = {
-        preset = "default",
+        preset = "enter",
         ["<Tab>"] = {
           function(cmp)
             return cmp.accept({ index = 1 })
@@ -108,13 +95,13 @@ return {
     "L3MON4D3/LuaSnip",
     config = function()
       require("luasnip.loaders.from_lua").lazy_load({
-        paths = vim.fn.stdpath("config") .. "/snippets",
+        paths = { vim.fn.stdpath("config") .. "/snippets" },
       })
     end,
   },
 
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     ft = "typst",
     opts = {},
     config = function(_, opts)
