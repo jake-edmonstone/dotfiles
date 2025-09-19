@@ -1,6 +1,7 @@
 return {
   {
     "mistricky/codesnap.nvim",
+    cmd = { "CodeSnap", "CodeSnapSave" },
     build = "make",
     opts = {
       mac_window_bar = false,

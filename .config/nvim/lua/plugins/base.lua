@@ -30,6 +30,7 @@ return {
       { "L3MON4D3/LuaSnip", version = "v2.*" },
     },
     opts = {
+      cmdline = { enabled = false },
       snippets = { preset = "luasnip" },
       sources = {
         default = {
@@ -93,6 +94,7 @@ return {
 
   {
     "L3MON4D3/LuaSnip",
+    lazy = true,
     config = function()
       require("luasnip.loaders.from_lua").lazy_load({
         paths = { vim.fn.stdpath("config") .. "/snippets" },
