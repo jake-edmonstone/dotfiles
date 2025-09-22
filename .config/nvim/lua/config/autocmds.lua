@@ -25,6 +25,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { fg = "NONE" })
     vim.api.nvim_set_hl(0, "TabLineFill", { fg = "NONE" })
     vim.api.nvim_set_hl(0, "BufferLineFill", { fg = "NONE" })
-    vim.api.nvim_set_hl(0, "StatusLine", { bg = "#191A21" })
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" }) --"#191A21" })
   end,
 })
