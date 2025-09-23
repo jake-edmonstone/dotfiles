@@ -1,7 +1,8 @@
 return {
   "stevearc/oil.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  cmd = { "Oil" }, -- keep lazy-loading by command
+  --cmd = { "Oil" }, -- keep lazy-loading by command
+  lazy = false,
   keys = {
     {
       "<leader>o",
@@ -20,31 +21,32 @@ return {
   opts = {
     view_options = { show_hidden = true },
     float = { padding = 5 },
+    default_file_explorer = true,
   },
-  init = function()
-    -- Open Oil automatically when starting with a single directory arg, e.g. `nvim .`
-    if vim.fn.argc() ~= 1 then
-      return
-    end
-    local a = vim.fn.argv(0)
-    if type(a) ~= "string" or vim.fn.isdirectory(a) ~= 1 then
-      return
-    end
-    vim.api.nvim_create_autocmd("VimEnter", {
-      once = true,
-      callback = function()
-        -- ensure plugin is loaded before using it
-        pcall(function()
-          require("lazy").load({ plugins = { "oil.nvim" } })
-        end)
-        local ok, oil = pcall(require, "oil")
-        if ok then
-          oil.open(a)
-        end
-      end,
-    })
-  end,
-  config = function(_, opts)
-    require("oil").setup(opts)
-  end,
+  -- init = function()
+  --   -- Open Oil automatically when starting with a single directory arg, e.g. `nvim .`
+  --   if vim.fn.argc() ~= 1 then
+  --     return
+  --   end
+  --   local a = vim.fn.argv(0)
+  --   if type(a) ~= "string" or vim.fn.isdirectory(a) ~= 1 then
+  --     return
+  --   end
+  --   vim.api.nvim_create_autocmd("VimEnter", {
+  --     once = true,
+  --     callback = function()
+  --       -- ensure plugin is loaded before using it
+  --       pcall(function()
+  --         require("lazy").load({ plugins = { "oil.nvim" } })
+  --       end)
+  --       local ok, oil = pcall(require, "oil")
+  --       if ok then
+  --         oil.open(a)
+  --       end
+  --     end,
+  --   })
+  -- end,
+  -- config = function(_, opts)
+  --   require("oil").setup(opts)
+  -- end,
 }
