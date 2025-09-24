@@ -21,7 +21,7 @@ disabled = false
 [directory]
 truncation_length = 0  # 0 means show the full path
 truncate_to_repo = false
-style = "bold green"
+style = "bold purple"
 
 [aws]
 style = "bold orange"

@@ -67,13 +67,8 @@ fi
 # load fzf keybindings & completions
 eval "$(fzf --zsh)"
 
+export FZF_DEFAULT_OPTS="--color=fg:#f8f8f2,hl:#bd93f9,fg+:#f8f8f2,bg+:-1,hl+:#bd93f9,prompt:#50fa7b,pointer:#ff79c6,marker:#ff79c6,border:#6272a4"
 # use fd instead of find for fzf sources
-# export FZF_DEFAULT_OPTS='
-#   --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
-#   --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
-#   --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
-#   --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
-# '
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix"
 export FZY_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"  # legacy fzy var

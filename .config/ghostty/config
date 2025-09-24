@@ -13,3 +13,4 @@ macos-titlebar-proxy-icon = hidden
 title = " "
 custom-shader = shaders/cursor_smear.glsl
 macos-titlebar-style = hidden
+macos-option-as-alt = true

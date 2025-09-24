@@ -70,8 +70,12 @@ return {
     opts = {
       explorer = { enabled = false },
       picker = {
-        sources = { explorer = { layout = { layout = { position = "right" } } } },
+        sources = {
+          files = { hidden = true },
+          explorer = { layout = { layout = { position = "right" } } },
+        },
         layout = { preset = "default" }, -- centered, large float
+        hidden = true,
       },
     },
   },
