@@ -8,8 +8,8 @@ export PATH="/Users/jbedm/.local/bin:$PATH"
 source "$(brew --prefix)/etc/profile.d/z.sh"
 
 # VimTeX (TeX Live)
-export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
-export PATH="$/usr/local/texlive/2024/bin/universal-darwin:$PATH"
+# export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
+# export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
 
 # Unison
 export UNISONLOCALHOSTNAME=FixedHostname
