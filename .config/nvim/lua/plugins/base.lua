@@ -41,6 +41,11 @@ return {
         },
       },
       completion = {
+        documentation = {
+          window = {
+            border = "rounded",
+          },
+        },
         list = { selection = { preselect = false, auto_insert = false } },
         ghost_text = { enabled = false },
       },
@@ -70,6 +75,13 @@ return {
     opts = {
       explorer = { enabled = false },
       picker = {
+        win = {
+          preview = {
+            wo = {
+              wrap = true,
+            },
+          },
+        },
         sources = {
           files = { hidden = true },
           explorer = { layout = { layout = { position = "right" } } },
