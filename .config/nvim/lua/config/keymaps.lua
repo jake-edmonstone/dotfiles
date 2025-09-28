@@ -37,3 +37,6 @@ vim.keymap.set("n", "<Tab>", function()
 end, { noremap = true, silent = true, desc = "Replace with first spelling suggestion" })
 
 vim.keymap.set("n", "<leader>i", "<C-i>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
