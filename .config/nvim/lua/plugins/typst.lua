@@ -17,4 +17,5 @@ return {
   --     -- your config here
   --   },
   -- },
+  -- For `plugins.lua` users.
 }
