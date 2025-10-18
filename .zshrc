@@ -11,11 +11,14 @@ source "$(brew --prefix)/etc/profile.d/z.sh"
 # export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 # export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
 
+# Typst Root
+export TYPST_ROOT=/Users/jbedm/typst/
+
 # Unison
 export UNISONLOCALHOSTNAME=FixedHostname
 
 # Haskell
-[ -f "/Users/jbedm/.ghcup/env" ] && . "/Users/jbedm/.ghcup/env" # ghcup-env
+#[ -f "/Users/jbedm/.ghcup/env" ] && . "/Users/jbedm/.ghcup/env" # ghcup-env
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Oh My Zsh Core & Plugins

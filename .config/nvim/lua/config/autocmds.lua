@@ -19,12 +19,3 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
   command = "if mode() != 'c' | checktime | endif",
   pattern = "*",
 })
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { fg = "NONE" })
-    vim.api.nvim_set_hl(0, "TabLineFill", { fg = "NONE" })
-    vim.api.nvim_set_hl(0, "BufferLineFill", { fg = "NONE" })
-    vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" }) --"#191A21" })
-  end,
-})

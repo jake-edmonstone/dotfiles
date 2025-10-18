@@ -19,6 +19,12 @@ return {
       vim.cmd.colorscheme("dracula")
       vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2E303E" })
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { fg = "NONE" })
+      vim.api.nvim_set_hl(0, "TabLineFill", { fg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineFill", { fg = "NONE" })
+      vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" }) --"#191A21" })
+      vim.api.nvim_set_hl(0, "MiniFilesNormal", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "MiniFilesBorder", { bg = "NONE" })
     end,
   },
 
