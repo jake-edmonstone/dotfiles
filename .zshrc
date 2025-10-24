@@ -70,7 +70,7 @@ fi
 # load fzf keybindings & completions
 eval "$(fzf --zsh)"
 
-export FZF_DEFAULT_OPTS="--color=fg:#f8f8f2,hl:#bd93f9,fg+:#f8f8f2,bg+:-1,hl+:#bd93f9,prompt:#50fa7b,pointer:#ff79c6,marker:#ff79c6,border:#6272a4"
+export FZF_DEFAULT_OPTS="--color=fg:#f8f8f2,hl:#bd93f9,fg+:#f8f8f2,bg+:-1,hl+:#bd93f9,prompt:#50fa7b,pointer:#ff79c6,marker:#ff79c6,border:#6272a4 --gutter ' '"
 # use fd instead of find for fzf sources
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix"
