@@ -60,15 +60,6 @@ if brew list fzf >/dev/null 2>&1; then
   "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish || true
 fi
 
-#----------------------------
-# Oh My Zsh
-#----------------------------
-if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
-  msg "Installing Oh My Zsh"
-  RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
 # set default shell to zsh
 if [[ "$SHELL" != *"zsh" ]]; then
   msg "Setting default shell to zsh"

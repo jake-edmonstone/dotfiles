@@ -21,19 +21,10 @@ export UNISONLOCALHOSTNAME=FixedHostname
 #[ -f "/Users/jbedm/.ghcup/env" ] && . "/Users/jbedm/.ghcup/env" # ghcup-env
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Oh My Zsh Core & Plugins
+# ZSH plugins
 # ──────────────────────────────────────────────────────────────────────────────
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-source $ZSH/oh-my-zsh.sh
-
-# auto‐update OMZ every 7 days
-zstyle ':omz:update' mode auto
-zstyle ':omz:update' frequency 7
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Aliases & Completion Behavior

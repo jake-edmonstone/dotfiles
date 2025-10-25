@@ -1,6 +1,4 @@
-tap "homebrew/bundle"
 tap "koekeishiya/formulae"
-tap "zegervdv/zathura"
 # Core application library for C
 brew "glib"
 # OpenType text shaping engine
@@ -55,8 +53,6 @@ brew "gtk+3"
 brew "hblock"
 # Network logon cracker which supports many services
 brew "hydra"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c@75"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
@@ -111,10 +107,10 @@ brew "wget"
 brew "z"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# PDF viewer
-brew "zegervdv/zathura/zathura"
-# Poppler backend plugin for zathura
-brew "zegervdv/zathura/zathura-pdf-poppler"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
 # Web browser focusing on privacy
 cask "brave-browser"
 # Anthropic's official Claude AI desktop app
@@ -128,8 +124,6 @@ cask "ghostty"
 cask "google-chrome"
 # GPU-based terminal emulator
 cask "kitty"
-# Full TeX Live distribution with GUI applications
-cask "mactex"
 # VPN client for secure internet access and private browsing
 cask "nordvpn"
 # App to write, plan, collaborate, and get organised
@@ -142,12 +136,6 @@ cask "ollama-app"
 cask "orion"
 # Keyboard-driven, vim-like browser based on PyQt5
 cask "qutebrowser"
-# Environment for statistical computing and graphics
-cask "r-app"
-# Data science software focusing on R and Python
-cask "rstudio"
-# PDF reader and note-taking application
-cask "skim"
 # System monitor for the menu bar
 cask "stats"
 # Virtual machines UI using QEMU
