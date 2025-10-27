@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Define your source and destination paths
+sourcePath="/Users/jbedm/uwcs/"
+destinationPath="uwcs:/u0/jbedmonstone/uwcs"
+
+# First, check for new updates from the server and sync them locally
+echo "Checking for new files or updates on the server..."
+serverUpdates=$(rclone sync "$destinationPath" "$sourcePath" --dry-run -v 2>&1)
+
+# Optional: Display changes or new files
+newFiles=$(echo "$serverUpdates" | grep -i "Skipped copy as --dry-run is set")
+if [ -n "$newFiles" ]; then
+  echo "The following new files were found on the server:"
+  echo "$newFiles" | awk -F'NOTICE: ' '{print $2}' | awk -F': Skipped' '{print $1}' 
+  echo -n "Do you want to update local files with these changes? (y/n) "
+  read -r updateResponse
+  if [[ "$updateResponse" =~ ^[yY]$ ]]; then
+    echo "Updating local files..."
+    rclone sync "$destinationPath" "$sourcePath"
+  else
+    echo "Pull canceled."
+  fi
+fi
+
+# Perform a dry run of the rclone sync operation and capture output
+output=$(rclone sync "$sourcePath" "$destinationPath" --dry-run -v 2>&1)
+
+# Check if any files would be deleted, specifically looking for "Skipped delete as --dry-run is set"
+deleteLines=$(echo "$output" | grep -i "Skipped delete as --dry-run is set")
+
+if [ -n "$deleteLines" ]; then
+    echo "The following files would be deleted:"
+    echo "$deleteLines" | awk -F'NOTICE: ' '{print $2}' | awk -F': Skipped' '{print $1}'
+    # Ask for user confirmation
+    echo -n "Do you want to proceed with the sync? (y/n) "
+    read -r response
+    if [[ "$response" =~ ^[yY]$ ]]; then
+        # User confirmed, proceed with the actual sync
+        echo "Proceeding with the sync..."
+        rclone sync "$sourcePath" "$destinationPath"
+    else
+        # User declined, exit the script
+        echo "Sync canceled."
+        exit 1
+    fi
+else
+    echo "No deletions needed, proceeding with the sync."
+    rclone sync "$sourcePath" "$destinationPath"
+fi
+

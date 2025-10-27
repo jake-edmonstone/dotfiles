@@ -24,6 +24,26 @@ local function grid_n(args)
   return sn(nil, nodes)
 end
 
+local function grid_mn(args)
+  local m = tonumber(args[1][1]) or 1 -- rows
+  local n = tonumber(args[2][1]) or 1 -- cols
+  local nodes = {}
+
+  for r = 1, m do
+    local cells = {}
+    for _ = 1, n do
+      cells[#cells + 1] = "$$"
+    end
+    local line = "  " .. table.concat(cells, ", ")
+    if r < m then
+      nodes[#nodes + 1] = t({ line .. ",", "" })
+    else
+      nodes[#nodes + 1] = t({ line .. "," })
+    end
+  end
+  return sn(nil, nodes)
+end
+
 ls.add_snippets("typst", {
   -- preamble snippet
   s("pre", {
@@ -40,4 +60,27 @@ ls.add_snippets("typst", {
     d(2, grid_n, { 1 }),
     t({ "", "))" }),
   }),
+
+  s("mytable", {
+    t("#my-table("),
+    i(1, "m"),
+    t(", "),
+    i(2, "n"),
+    t(", ("),
+    t({ "", "" }),
+    d(3, grid_mn, { 1, 2 }),
+    t({ "", "))" }),
+  }),
 })
+
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
+  if ls.jumpable(1) then
+    ls.jump(1)
+  end
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-h>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })

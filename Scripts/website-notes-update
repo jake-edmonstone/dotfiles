@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+
+for course in pmath347 pmath367; do
+  main="$HOME/typst/$course/notes/main.typ"
+
+  # Insert after "show: preamble"
+  sed -i '' -e '/show: preamble/a\
+#set text(12pt)
+' "$main"
+
+  # Compile
+  typst compile "$main" "$HOME/Projects/jake-edmonstone.github.io/${course}-notes.pdf"
+
+  # Remove the inserted line
+  sed -i '' -e '/#set text(12pt)/d' "$main"
+done
+
+git-sync

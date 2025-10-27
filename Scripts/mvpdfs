@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Define the source directory where the PDFs are located
+PDF_DIR="/Users/jbedm/Latex/Aux"
+
+# Find all .tex files in the current directory
+for texfile in *.tex; do
+  # Get the base name of the .tex file (without the extension)
+  base=$(basename "$texfile" .tex)
+
+  # Construct the corresponding PDF file path in the source directory
+  pdf_file="$PDF_DIR/$base.pdf"
+
+  # Check if the PDF file exists
+  if [[ -f "$pdf_file" ]]; then
+    # Move the PDF file to the current directory
+    mv "$pdf_file" .
+    echo "Moved $pdf_file to the current directory."
+  else
+    echo "PDF file $pdf_file not found."
+  fi
+done

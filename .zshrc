@@ -2,7 +2,7 @@
 # Homebrew & Path Configuration
 # ──────────────────────────────────────────────────────────────────────────────
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="$HOME/Scripts:$PATH"
+export PATH="$HOME/.dotfiles/Scripts:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="/Users/jbedm/.local/bin:$PATH"
 source "$(brew --prefix)/etc/profile.d/z.sh"
@@ -34,8 +34,15 @@ if [ -f ~/.zsh_aliases ]; then
   source ~/.zsh_aliases
 fi
 
+# completion init
+autoload -Uz compinit
+zmodload -i zsh/complist
+compinit -u
+
 # enable menu selection for default completions
 zstyle ':completion:::::default' menu yes select
+# enable case insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # ──────────────────────────────────────────────────────────────────────────────
 # History Settings

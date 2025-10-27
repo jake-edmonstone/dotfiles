@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+msg="sync on $(date +%Y-%m-%d)"
+
+for dir in "$HOME/typst" "$HOME/.dotfiles" "$HOME/Projects/jake-edmonstone.github.io"; do
+  if [ -d "$dir/.git" ]; then
+    echo "Syncing $dir"
+    git -C "$dir" add .
+    git -C "$dir" commit -m "$msg" || echo "No changes in $dir"
+    git -C "$dir" push
+  else
+    echo "Skipping $dir (not a git repo)"
+  fi
+done
