@@ -73,14 +73,14 @@ ls.add_snippets("typst", {
   }),
 })
 
-vim.keymap.set({ "i", "s" }, "<C-l>", function()
-  if ls.jumpable(1) then
-    ls.jump(1)
-  end
-end, { silent = true })
-
-vim.keymap.set({ "i", "s" }, "<C-h>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true })
+-- vim.keymap.set({ "i", "s" }, "<C-l>", function()
+--   if ls.jumpable(1) then
+--     ls.jump(1)
+--   end
+-- end, { silent = true })
+--
+-- vim.keymap.set({ "i", "s" }, "<C-h>", function()
+--   if ls.jumpable(-1) then
+--     ls.jump(-1)
+--   end
+-- end, { silent = true })

@@ -40,3 +40,23 @@ vim.keymap.set("n", "<leader>i", "<C-i>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+
+-- select mode and luasnip jumping
+local ls = require("luasnip")
+local function t(keys)
+  return vim.api.nvim_replace_termcodes(keys, true, true, true)
+end
+local function jump_or_move(dir)
+  if ls.jumpable(dir) then
+    ls.jump(dir)
+  else
+    local key = dir == 1 and "<Right>" or "<Left>"
+    vim.api.nvim_feedkeys(t(key), "n", false)
+  end
+end
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
+  jump_or_move(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-h>", function()
+  jump_or_move(-1)
+end, { silent = true })
