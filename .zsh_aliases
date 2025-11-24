@@ -9,4 +9,6 @@ alias grep='grep --ignore-case --color=auto'
 alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tls='tmux ls'
-
+trash() {
+    mv "$@" ~/.Trash
+}
