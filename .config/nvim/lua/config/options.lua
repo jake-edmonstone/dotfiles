@@ -14,3 +14,5 @@ vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = false })
 vim.opt.swapfile = false
 
 vim.g.root_spec = { "cwd" } -- make it so doens't use git repo as root, it uses directory nvim was started in
+
+vim.lsp.set_log_level("off")
