@@ -122,12 +122,6 @@ cask "font-hack-nerd-font"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
-# GPU-based terminal emulator
-cask "kitty"
-# VPN client for secure internet access and private browsing
-cask "nordvpn"
-# App to write, plan, collaborate, and get organised
-cask "notion"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Get up and running with large language models locally

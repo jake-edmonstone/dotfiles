@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+src="/Users/jbedm/ws/"
+dst="dev:/cb/home/jakee/ws/"
+
+rsync -rz --delete \
+  --exclude='.git/' \
+  --exclude='.DS_Store' \
+  --exclude='._*' \
+  --exclude='llvm/' \
+  --exclude='clang/' \
+  "$src" "$dst"

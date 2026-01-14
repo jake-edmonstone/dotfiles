@@ -2,8 +2,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 alias rm='rm -i'
-mkcd () {
-    mkdir -p "$1" && cd "$1"
+mkcd() {
+  mkdir -p "$1" && cd "$1"
 }
 export PATH="$HOME/Scripts:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
@@ -38,37 +38,36 @@ shopt -s checkwinsize
 [ -x /opt/bin/lesspipe ] && eval "$(SHELL=/system/bin/sh lesspipe)"
 
 # Using color promt
-if [[ ${EUID} == 0 ]] ; then
-    PS1='\[\033[48;2;221;75;57;38;2;255;255;255m\] \$ \[\033[48;2;189;147;249;38;2;221;75;57m\]\[\033[38;2;255;255;255m\] \h \[\033[48;2;68;71;90;38;2;189;147;249m\]\[\033[38;2;255;255;255m\] \w \[\033[49;38;2;68;71;90m\]\[\033[00m\] '
+if [[ ${EUID} == 0 ]]; then
+  PS1='\[\033[48;2;221;75;57;38;2;255;255;255m\] \$ \[\033[48;2;189;147;249;38;2;221;75;57m\]\[\033[38;2;255;255;255m\] \h \[\033[48;2;68;71;90;38;2;189;147;249m\]\[\033[38;2;255;255;255m\] \w \[\033[49;38;2;68;71;90m\]\[\033[00m\] '
 else
-    PS1='\[\033[48;2;80;250;123;38;2;255;255;255m\] \$ \[\033[48;2;189;147;249;38;2;80;250;123m\]\[\033[38;2;255;255;255m\] \u@\h \[\033[48;2;68;71;90;38;2;189;147;249m\]\[\033[38;2;255;255;255m\] \w \[\033[49;38;2;68;71;90m\]\[\033[00m\] '
+  PS1='\[\033[48;2;80;250;123;38;2;255;255;255m\] \$ \[\033[48;2;189;147;249;38;2;80;250;123m\]\[\033[38;2;255;255;255m\] \u@\h \[\033[48;2;68;71;90;38;2;189;147;249m\]\[\033[38;2;255;255;255m\] \w \[\033[49;38;2;68;71;90m\]\[\033[00m\] '
 fi
 
 # Some better definitions
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias cp="cp -i"     # confirm before overwriting something
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
 alias more=less
 
 #
 # # ex - archive extractor
 # # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
+ex() {
+  if [ -f $1 ]; then
     case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
+    *.tar.bz2) tar xjf $1 ;;
+    *.tar.gz) tar xzf $1 ;;
+    *.bz2) bunzip2 $1 ;;
+    *.rar) unrar x $1 ;;
+    *.gz) gunzip $1 ;;
+    *.tar) tar xf $1 ;;
+    *.tbz2) tar xjf $1 ;;
+    *.tgz) tar xzf $1 ;;
+    *.zip) unzip $1 ;;
+    *.Z) uncompress $1 ;;
+    *.7z) 7z x $1 ;;
+    *) echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
     echo "'$1' is not a valid file"
@@ -77,14 +76,14 @@ ex ()
 
 # enable color support of ls and also add handy aliases
 if [ -x /opt/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  #alias dir='dir --color=auto'
+  #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # some more ls aliases
@@ -98,17 +97,15 @@ alias l='ls -CF'
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /opt/etc/bash_completion ] && ! shopt -oq posix; then
-    . /opt/etc/bash_completion
+  . /opt/etc/bash_completion
 fi
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
@@ -136,10 +133,10 @@ _fzf_comprun() {
   shift
 
   case "$command" in
-    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
-    ssh)          fzf --preview 'dig {}'                   "$@" ;;
-    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+  export | unset) fzf --preview "eval 'echo $'{}" "$@" ;;
+  ssh) fzf --preview 'dig {}' "$@" ;;
+  *) fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
 

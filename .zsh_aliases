@@ -5,10 +5,13 @@ alias rm='rm -i'
 alias cp="cp -i"
 alias ls='eza --icons=always'
 alias la='eza --icons=always -A'
+alias ll='eza --icons=always -Al'
 alias grep='grep --ignore-case --color=auto'
 alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tls='tmux ls'
+alias trn='tmux rename-session'
+alias ssh='TERM=xterm-256color \ssh'
 trash() {
     mv "$@" ~/.Trash
 }
