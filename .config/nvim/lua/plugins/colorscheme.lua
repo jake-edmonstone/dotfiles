@@ -22,7 +22,9 @@ return {
       vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { fg = "NONE" })
       vim.api.nvim_set_hl(0, "TabLineFill", { fg = "NONE" })
       vim.api.nvim_set_hl(0, "BufferLineFill", { fg = "NONE" })
-      vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" }) --"#191A21" })
+      vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "StatusLineTerm", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "StatusLineTermNC", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "MiniFilesNormal", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "MiniFilesBorder", { bg = "NONE" })
     end,
