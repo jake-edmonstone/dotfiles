@@ -12,6 +12,7 @@ alias tn='tmux new -s'
 alias tls='tmux ls'
 alias trn='tmux rename-session'
 alias ssh='TERM=xterm-256color \ssh'
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 trash() {
     mv "$@" ~/.Trash
 }
