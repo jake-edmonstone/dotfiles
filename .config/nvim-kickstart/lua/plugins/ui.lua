@@ -8,7 +8,7 @@ return {
 		---@type wk.Opts
 		---@diagnostic disable-next-line: missing-fields
 		opts = {
-			delay = 0,
+			delay = 500,
 			icons = {
 				mappings = vim.g.have_nerd_font,
 				keys = vim.g.have_nerd_font and {} or {
@@ -47,12 +47,12 @@ return {
 				{ "<leader>b", group = "[B]uffer" },
 				{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
 				{ "<leader>f", group = "[F]ind" },
-				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>u", group = "[U]I" },
 				{ "<leader>w", group = "[W]indow" },
 				{ "<leader>x", group = "Trouble" },
 				{ "<leader>c", group = "[C]ode" },
 				{ "<leader>g", group = "[G]it" },
+				{ "<leader>gh", group = "[H]unks" },
 				{ "<leader><tab>", group = "tabs" },
 				{ "gr", group = "LSP Actions", mode = { "n" } },
 			},

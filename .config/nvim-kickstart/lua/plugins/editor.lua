@@ -132,6 +132,88 @@ return {
 		end,
 	},
 
+	-- Treesitter textobjects for better navigation
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		event = "VeryLazy",
+		config = function()
+			local move = {
+				goto_next_start = {
+					["]f"] = "@function.outer",
+					["]c"] = "@class.outer",
+					["]a"] = "@parameter.inner",
+				},
+				goto_next_end = {
+					["]F"] = "@function.outer",
+					["]C"] = "@class.outer",
+					["]A"] = "@parameter.inner",
+				},
+				goto_previous_start = {
+					["[f"] = "@function.outer",
+					["[c"] = "@class.outer",
+					["[a"] = "@parameter.inner",
+				},
+				goto_previous_end = {
+					["[F"] = "@function.outer",
+					["[C"] = "@class.outer",
+					["[A"] = "@parameter.inner",
+				},
+			}
+
+			-- Set up keymaps for each buffer
+			local function setup_keymaps(bufnr)
+				for direction, keymaps in pairs(move) do
+					for key, query in pairs(keymaps) do
+						local method = direction
+						local desc = ""
+
+						-- Build description
+						local obj = query:gsub("@", ""):gsub("%..*", "")
+						obj = obj:sub(1, 1):upper() .. obj:sub(2)
+
+						if key:sub(1, 1) == "]" then
+							desc = "Next " .. obj
+						else
+							desc = "Prev " .. obj
+						end
+
+						if key:sub(2, 2) == key:sub(2, 2):upper() then
+							desc = desc .. " End"
+						else
+							desc = desc .. " Start"
+						end
+
+						-- Skip conflict with diff mode [c/]c
+						if not (vim.wo.diff and key:find("[cC]")) then
+							vim.keymap.set({ "n", "x", "o" }, key, function()
+								require("nvim-treesitter.textobjects.move")[method](query)
+							end, {
+								buffer = bufnr,
+								desc = desc,
+								silent = true,
+							})
+						end
+					end
+				end
+			end
+
+			-- Setup for all current buffers
+			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+				if vim.api.nvim_buf_is_loaded(buf) then
+					setup_keymaps(buf)
+				end
+			end
+
+			-- Setup for new buffers
+			vim.api.nvim_create_autocmd("FileType", {
+				group = vim.api.nvim_create_augroup("treesitter_textobjects", { clear = true }),
+				callback = function(ev)
+					setup_keymaps(ev.buf)
+				end,
+			})
+		end,
+	},
+
 	-- Treesitter for syntax highlighting
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -168,6 +250,34 @@ return {
 					vim.treesitter.start()
 				end,
 			})
+		end,
+	},
+
+	-- Auto-close and auto-rename HTML tags
+	{
+		"windwp/nvim-ts-autotag",
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {},
+	},
+
+	-- Show code context (sticky header)
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = { "BufReadPost", "BufNewFile" },
+		opts = function()
+			local tsc = require("treesitter-context")
+			Snacks.toggle({
+				name = "Treesitter Context",
+				get = tsc.enabled,
+				set = function(state)
+					if state then
+						tsc.enable()
+					else
+						tsc.disable()
+					end
+				end,
+			}):map("<leader>ut")
+			return { mode = "cursor", max_lines = 3 }
 		end,
 	},
 }

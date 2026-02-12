@@ -16,5 +16,6 @@ rtp:prepend(lazypath)
 require("lazy").setup("plugins", { ---@diagnostic disable-line: missing-fields
 	ui = {
 		icons = {},
+		border = "rounded",
 	},
 })
