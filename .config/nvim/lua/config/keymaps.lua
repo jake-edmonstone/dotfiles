@@ -60,3 +60,8 @@ end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<C-h>", function()
   jump_or_move(-1)
 end, { silent = true })
+
+vim.keymap.set("n", "<leader>gq", function()
+  vim.cmd('cexpr system("git diff --check --relative")')
+  vim.cmd("copen")
+end, { desc = "Git conflicts to quickfix" })
