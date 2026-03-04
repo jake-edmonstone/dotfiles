@@ -65,3 +65,7 @@ vim.keymap.set("n", "<leader>gq", function()
   vim.cmd('cexpr system("git diff --check --relative")')
   vim.cmd("copen")
 end, { desc = "Git conflicts to quickfix" })
+
+vim.keymap.set("n", "<leader>sF", function()
+  Snacks.picker.grep({ cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Search current file directory" })
