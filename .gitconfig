@@ -3,3 +3,11 @@
 	email = jbedmonstone@gmail.com
 [core]
 	editor = nvim
+  pager = delta
+[delta]
+  line-numbers = true
+  navigate = true
+  syntax-theme = Dracula
+[interactive]
+  diffFilter = delta --color-only
+

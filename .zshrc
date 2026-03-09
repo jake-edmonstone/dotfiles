@@ -18,6 +18,9 @@ compinit -u
 zstyle ':completion:::::default' menu yes select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# Interactive navigation helper.
+source "$(brew --prefix)/etc/profile.d/z.sh"
+
 # ──────────────────────────────────────────────────────────────────────────────
 # History Settings
 # ──────────────────────────────────────────────────────────────────────────────
